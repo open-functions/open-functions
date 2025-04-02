@@ -1,0 +1,46 @@
+{
+    "name": "open-functions/open-functions",
+    "description": "A core library that provides a framework for building and registering Open Functions for AI-powered applications. It simplifies integration with large language models by standardizing function definitions, message handling, and response formatting, reducing boilerplate for advanced assistant capabilities.",
+    "type": "library",
+    "keywords": [
+        "assistant-engine",
+        "laravel",
+        "open ai",
+        "LLM",
+        "GenAI"
+    ],
+    "homepage": "https://github.com/open-functions/open-functions",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Florian Weigang",
+            "email": "florian@assistant-engine.com"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "guzzlehttp/guzzle": "^7.9",
+        "openai-php/client": "^0.10.3",
+        "ext-curl": "*"
+    },
+
+    "require-dev": {
+        "nyholm/psr7": "^1.8",
+        "phpunit/phpunit": "^11.5",
+        "symfony/http-client": "^7.2",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenFunctions\\Core\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
