@@ -21,7 +21,7 @@ class ItemFactory
         $response = [];
 
         foreach ($itemList as $data) {
-            $response[] = ItemFactory::listFromArray($data);
+            $response[] = ItemFactory::fromArray($data);
         }
 
         return $response;
