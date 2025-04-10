@@ -3,6 +3,7 @@
 namespace OpenFunctions\Core\Responses;
 
 use OpenFunctions\Core\Contracts\Responses\ResponseItem;
+use OpenFunctions\Core\Responses\Events\AvailableEvent;
 use OpenFunctions\Core\Responses\Items\AudioResponseItem;
 use OpenFunctions\Core\Responses\Items\ImageResponseItem;
 
@@ -16,6 +17,13 @@ class OpenFunctionResponse
      * @var ResponseItem[] A list of response item objects.
      */
     public array $content = [];
+
+    /**
+     * List of available events for subscription.
+     *
+     * @var AvailableEvent[]
+     */
+    public array $availableEvents = [];
 
     /**
      * Indicates whether this response represents an error.
@@ -37,7 +45,7 @@ class OpenFunctionResponse
      * @param string $status  Should be either self::STATUS_SUCCESS or self::STATUS_ERROR.
      * @param array  $content A list of response items (instances of ResponseItem).
      */
-    public function __construct(string $status, array $content = [])
+    public function __construct(string $status, array $content = [], array $availableEvents = [])
     {
         $this->status  = $status;
         $this->isError = ($status === self::STATUS_ERROR);
@@ -45,11 +53,20 @@ class OpenFunctionResponse
         foreach ($content as $item) {
             $this->addContent($item);
         }
+
+        foreach ($availableEvents as $availableEvent) {
+            $this->addAvailableEvent($availableEvent);
+        }
     }
 
     public function addContent(ResponseItem $content): void
     {
         $this->content[] = $content;
+    }
+
+    public function addAvailableEvent(AvailableEvent $availableEvent): void
+    {
+        $this->availableEvents[] = $availableEvent;
     }
 
     /**
