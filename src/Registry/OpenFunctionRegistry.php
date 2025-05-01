@@ -321,7 +321,7 @@ class OpenFunctionRegistry extends AbstractComputerTool
             }
             $grouped[$namespace]['functions'][] = [
                 'name' => $namespacedName,
-                'description' => $entry['definition']['function']['description']
+                'description' => $entry['definition']['description']
             ];
         }
 
