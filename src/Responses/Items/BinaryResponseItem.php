@@ -51,4 +51,19 @@ class BinaryResponseItem extends ResponseItem
 
         return $result;
     }
+
+    public function getMimeType(): ?string
+    {
+        return $this->mimeType;
+    }
+
+    public function getData(): ?string
+    {
+        return $this->data;
+    }
+
+    public function getUri(): ?string
+    {
+        return $this->uri;
+    }
 }
