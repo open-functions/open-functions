@@ -5,6 +5,7 @@ namespace OpenFunctions\Core\Responses;
 use OpenFunctions\Core\Contracts\Responses\ResponseItem;
 use OpenFunctions\Core\Responses\Events\AvailableEvent;
 use OpenFunctions\Core\Responses\Items\AudioResponseItem;
+use OpenFunctions\Core\Responses\Items\BinaryResponseItem;
 use OpenFunctions\Core\Responses\Items\ImageResponseItem;
 
 class OpenFunctionResponse
@@ -77,7 +78,7 @@ class OpenFunctionResponse
         $response = [];
 
         foreach ($this->content as $item) {
-            if ( $item instanceof ImageResponseItem || $item instanceof AudioResponseItem) {
+            if ( $item instanceof ImageResponseItem || $item instanceof AudioResponseItem || $item instanceof BinaryResponseItem) {
                 $response[] = $item;
             }
         }
@@ -90,7 +91,7 @@ class OpenFunctionResponse
         $response = [];
 
         foreach ($this->content as $item) {
-            if ($withBinary === false && ($item instanceof ImageResponseItem || $item instanceof AudioResponseItem)) {
+            if ($withBinary === false && ($item instanceof ImageResponseItem || $item instanceof AudioResponseItem || $item instanceof BinaryResponseItem)) {
                 continue;
             }
 
