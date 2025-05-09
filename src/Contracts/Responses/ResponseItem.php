@@ -10,6 +10,7 @@ abstract class ResponseItem
     const TYPE_TEXT = 'text';
     const TYPE_IMAGE = 'image';
     const TYPE_AUDIO = 'audio';
+    const TYPE_BINARY = 'binary';
     const TYPE_COMPUTER_SCREENSHOT = 'computer_screenshot';
 
     /**
